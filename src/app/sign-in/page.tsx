@@ -64,7 +64,7 @@ export default function SignInPage() {
             </div>
             <h1 className="text-2xl font-bold text-navy-700">Welcome back</h1>
             <p className="text-sm text-slate-500">
-              Hello! Please sign in to your account.
+              Sign in to your attendance Tracker account.
             </p>
           </div>
 
