@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum DayType {
+  HOLIDAY
+  OPTIONAL_HOLIDAY
+  WORKDAY
+}
+
+enum Status {
+  WFO
+  WFH
+  PL
+  SL
+  OL
+}
+
+enum HolidayType {
+  HOLIDAY
+  OPTIONAL_HOLIDAY
+}
+
+model User {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(USER)
+  entries      DayEntry[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model DayEntry {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime @db.Date
+  year        Int
+  month       Int
+  dayType     DayType
+  status      Status?
+  holidayName String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, date])
+  @@index([userId, year, month])
+  @@index([userId, year])
+}
+
+model HolidayCalendar {
+  id        String      @id @default(cuid())
+  date      DateTime    @unique @db.Date
+  year      Int
+  type      HolidayType
+  name      String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([year])
+}
