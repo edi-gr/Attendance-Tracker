@@ -127,7 +127,8 @@ export default function SignInPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-11 text-sm font-medium gap-2"
+              className="w-full h-11 text-sm font-medium gap-2 text-white hover:opacity-90"
+              style={{ backgroundColor: "#1c8195" }}
             >
               {loading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

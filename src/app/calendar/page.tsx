@@ -90,7 +90,13 @@ function CalendarContent() {
                 <RotateCcw className="h-4 w-4 mr-1.5" />
                 Reset
               </Button>
-              <Button size="sm" onClick={handleSave} disabled={calendar.saving}>
+              <Button
+                size="sm"
+                onClick={handleSave}
+                disabled={calendar.saving}
+                className="text-white hover:opacity-90"
+                style={{ backgroundColor: "#1c8195" }}
+              >
                 {calendar.saving ? (
                   <Loader2 className="h-4 w-4 mr-1.5 animate-spin" />
                 ) : (

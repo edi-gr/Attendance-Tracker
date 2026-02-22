@@ -184,7 +184,10 @@ export function AdminUserTable({ users, year, month, onRoleChanged }: AdminUserT
                         <div className="flex items-center justify-center gap-1.5">
                           {user.role === "ADMIN" ? (
                             <>
-                              <Badge variant="default" className="text-[9px]">
+                              <Badge
+                                className="text-[9px] text-white border-0"
+                                style={{ backgroundColor: "#1c8195" }}
+                              >
                                 ADMIN
                               </Badge>
                               <button
