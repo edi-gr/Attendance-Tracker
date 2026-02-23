@@ -34,7 +34,6 @@ export const OPTIONAL_HOLIDAY_STATUSES = [
 ] as const;
 
 export const ADMIN_EMAILS = [
-  "f20211247@goa.bits-pilani.ac.in",
   "edsongeorge.rebello@breadfinancial.com",
   "abhishekkumar.jha@breadfinancial.com",
   "naveli.das@breadfinancial.com",
